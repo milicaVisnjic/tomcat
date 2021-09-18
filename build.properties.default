@@ -231,6 +231,12 @@ easymock.home=${base.path}/easymock-${easymock.version}
 easymock.jar=${easymock.home}/easymock-${easymock.version}.jar
 easymock.loc=${base-maven.loc}/org/easymock/easymock/${easymock.version}/easymock-${easymock.version}.jar
 
+sonar.projectVersion=1.0
+sonar.sources=src/main/java
+sonar.sourceEncoding=UTF-8
+sonar.language=java
+sonar.java.binaries=target/classes
+
 # ----- cglib, used by EasyMock, version 2.2 or later -----
 cglib.version=3.3.0
 cglib.checksum.enabled=true

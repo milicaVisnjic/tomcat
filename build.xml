@@ -192,6 +192,27 @@
   <property name="findbugs.report.format" value="html"/>
   <property name="findbugs.report.level" value="low"/>
 
+  <!-- Define the Sonar properties -->
+	<property name="sonar.projectKey" value="milicaVisnjic_tomcat" />
+	<property name="sonar.projectName" value="tomcat" />
+	<property name="sonar.projectVersion" value="1.0" />
+	<property name="sonar.sources" value="src" />
+	<property name="sonar.java.binaries" value="target" />
+	<property name="sonar.sourceEncoding" value="UTF-8" />
+  
+  <!-- ========= Define SonarQube Scanner for Ant Target ========= -->
+<target name="sonar" depends="compile">
+	<taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+		<!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+		<classpath path="C:\Programi\apache-ant-1.9.16\lib\*.jar" />
+	</taskdef>
+	
+	<!-- Execute SonarQube Scanner for Ant Analysis -->
+	<sonar:sonar />
+</target>
+  
+  <target name="all" depends="clean,compile,sonar" />
+  
   <!-- Workaround against http://bugs.sun.com/view_bug.do?bug_id=6202721 -->
   <available file="/dev/urandom" property="test.jvmarg.egd" value="-Djava.security.egd=file:/dev/./urandom"/>
   <!-- JREs may fail to start with an empty argument so provide a dummy      -->
